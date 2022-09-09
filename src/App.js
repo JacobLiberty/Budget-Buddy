@@ -2,30 +2,17 @@ import logo from "./logo.svg";
 import "./App.css";
 import { api } from "./utils/api";
 import { Provider } from "@gadgetinc/react";
-import { isListType } from "graphql";
 import Test from "./components/Test";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 function App() {
+  const client = api;
   return (
-    <Provider value={api.connection.currentClient}>
+    <ApolloProvider client={client}>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
         <Test></Test>
       </div>
-    </Provider>
+    </ApolloProvider>
   );
 }
 

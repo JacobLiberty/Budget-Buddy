@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_USERS = gql`
+export const QUERY_USERS = `
   query FindManyUsers {
     users {
       edges {
